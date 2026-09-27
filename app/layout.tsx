@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ParkingProvider } from '@/components/parkwatch/provider';
-import { Shell } from '@/components/parkwatch/shell';
-import { getSnapshot } from '@/lib/parking/mock-service';
 
 export const metadata: Metadata = {
-  title: "ParkWatch | Smart Campus Parking",
-  description: "Find campus parking, track your parking time, and explore simulated AI vehicle monitoring with ParkWatch.",
+  title: "ParkWatch | Campus parking",
+  description: "Find a space, watch your parking timer, and explore campus parking image analysis.",
+  other: {
+    "codex-preview": "development",
+  },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased"><a className="skip-link" href="#main">Skip to content</a><ParkingProvider initial={getSnapshot()}><Shell>{children}</Shell></ParkingProvider></body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
